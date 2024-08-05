@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-        ref: ${{ github.event.client_payload.sha }}
+      - name: ${{ github.event.client_payload.id }}
+        run: echo "ID is ${{ github.event.client_payload.id }}"
