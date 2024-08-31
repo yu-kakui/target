@@ -2,7 +2,10 @@ name: My Target Workflow
 
 on:
   repository_dispatch:
-    types: [trigger-workflow]
+    inputs:
+      name:
+        description: 'name'
+        required: true
     
 jobs:
   build:
@@ -11,5 +14,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: ${{ github.event.client_payload.id }}
-        run: echo "ID is ${{ github.event.client_payload.id }}"
+        
+      - name: ${{ inputs.name }}
+        run: echo "My name is ${{ inputs.name }}"
