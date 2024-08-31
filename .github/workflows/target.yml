@@ -1,4 +1,5 @@
 name: My Target Workflow
+run-name: Target Workflow ${{ inputs.name }} 
 
 on:
   workflow_dispatch:
